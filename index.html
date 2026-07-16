@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Foundation — Ten Practices for Solidifying a Relationship</title>
+<meta name="description" content="Ten practices for solidifying a relationship, each grounded in the relationship science — with sources, effect sizes, and an honest account of the limits.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..700&family=Newsreader:ital,opsz,wght@0,6..72,300..600;1,6..72,300..600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #F5F0E6;
+    --surface: #FFFDF7;
+    --ink: #2A2520;
+    --ink-soft: #5D564C;
+    --muted: #938A79;
+    --line: #E2D8C4;
+    --slate: #3E5C63;      /* the accent — bedrock */
+    --slate-deep: #2C4349;
+    --caution: #8A5A24;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Newsreader', Georgia, serif;
+    font-size: 17px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .wrap { max-width: 46rem; margin: 0 auto; padding: 0 2rem; }
+  @media (max-width: 640px) { .wrap { padding: 0 1.3rem; } }
+
+  a { color: inherit; }
+
+  /* ---------- masthead ---------- */
+  .masthead { padding: 5rem 0 2.5rem; }
+
+  .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 2rem;
+  }
+
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: 'opsz' 144;
+    font-weight: 300;
+    font-size: clamp(2.3rem, 6.5vw, 3.9rem);
+    line-height: 1.02;
+    letter-spacing: -0.028em;
+    margin-bottom: 1.1rem;
+  }
+
+  h1 em { font-style: italic; font-weight: 400; }
+
+  .subtitle {
+    font-size: clamp(1.05rem, 2.4vw, 1.25rem);
+    color: var(--ink-soft);
+    font-style: italic;
+    margin-bottom: 2.5rem;
+  }
+
+  .abstract {
+    background: var(--surface);
+    border-left: 2px solid var(--slate);
+    padding: 1.5rem 1.6rem;
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+  }
+
+  .abstract strong {
+    display: block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--slate);
+    margin-bottom: 0.7rem;
+  }
+
+  /* ---------- section headers ---------- */
+  .rule {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin: 4rem 0 0;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid var(--ink);
+  }
+
+  .rule h2 {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: 'opsz' 40;
+    font-weight: 400;
+    font-size: 1.3rem;
+    letter-spacing: -0.01em;
+  }
+
+  .rule .count {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-left: auto;
+  }
+
+  /* ---------- practices ---------- */
+  .practice {
+    padding: 2.6rem 0;
+    border-bottom: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 2.6rem 1fr;
+    gap: 0 1.4rem;
+  }
+
+  .practice .n {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.78rem;
+    font-weight: 500;
+    color: var(--slate);
+    padding-top: 0.45rem;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .practice h3 {
+    font-family: 'Fraunces', serif;
+    font-variation-settings: 'opsz' 60;
+    font-weight: 400;
+    font-size: clamp(1.35rem, 3.4vw, 1.72rem);
+    line-height: 1.2;
+    letter-spacing: -0.015em;
+    margin-bottom: 0.65rem;
+  }
+
+  .statement {
+    color: var(--ink-soft);
+    margin-bottom: 1.3rem;
+  }
+
+  /* the practical block — what you actually do */
+  .doing {
+    background: var(--surface);
+    padding: 1.1rem 1.3rem;
+    margin-bottom: 1.1rem;
+    border: 1px solid var(--line);
+  }
+
+  .doing h4,
+  .evidence h4 {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.6rem;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 0.55rem;
+  }
+
+  .doing ul { list-style: none; }
+
+  .doing li {
+    position: relative;
+    padding-left: 1.1rem;
+    font-size: 0.94rem;
+    margin-bottom: 0.35rem;
+    color: var(--ink);
+  }
+
+  .doing li::before {
+    content: '—';
+    position: absolute;
+    left: 0;
+    color: var(--slate);
+  }
+
+  .doing li:last-child { margin-bottom: 0; }
+
+  /* the evidence block */
+  .evidence {
+    border-left: 2px solid var(--slate);
+    padding: 0.2rem 0 0.2rem 1.1rem;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+
+  .evidence h4 { color: var(--slate); }
+
+  .cite {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--muted);
+    margin-top: 0.5rem;
+    display: block;
+  }
+
+  sup a {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    text-decoration: none;
+    color: var(--slate);
+    padding: 0 0.1rem;
+    font-weight: 500;
+  }
+
+  sup a:hover { text-decoration: underline; }
+
+  /* strength tag */
+  .strength {
+    display: inline-block;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.16rem 0.45rem;
+    border: 1px solid currentColor;
+    margin-top: 0.7rem;
+  }
+
+  .s-strong { color: var(--slate); }
+  .s-mixed { color: var(--caution); }
+
+  /* ---------- limitations ---------- */
+  .limits {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-top: 2px solid var(--caution);
+    padding: 1.8rem 1.6rem;
+    margin-top: 2.5rem;
+    font-size: 0.93rem;
+    color: var(--ink-soft);
+  }
+
+  .limits p { margin-bottom: 0.9rem; }
+  .limits p:last-child { margin-bottom: 0; }
+  .limits strong { color: var(--ink); font-weight: 600; }
+
+  /* ---------- references ---------- */
+  .refs { margin-top: 2rem; }
+
+  .refs ol {
+    list-style: none;
+    counter-reset: ref;
+  }
+
+  .refs li {
+    counter-increment: ref;
+    position: relative;
+    padding-left: 2.2rem;
+    margin-bottom: 0.85rem;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+    line-height: 1.55;
+  }
+
+  .refs li::before {
+    content: counter(ref) '.';
+    position: absolute;
+    left: 0;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--slate);
+    padding-top: 0.14rem;
+  }
+
+  .refs li em { font-style: italic; }
+
+  /* ---------- footer ---------- */
+  footer { padding: 3.5rem 0 5rem; }
+
+  .closing {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(1.15rem, 3vw, 1.5rem);
+    color: var(--ink);
+    max-width: 24rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .colophon {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding-top: 1.3rem;
+    border-top: 1px solid var(--line);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .colophon a { text-decoration: none; }
+  .colophon a:hover { color: var(--slate); }
+
+  /* ---------- print: the card ---------- */
+  .printbar {
+    margin-top: 1.6rem;
+    display: flex;
+    gap: 0.8rem;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .printbtn {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.66rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 0.6rem 1rem;
+    border: 1px solid var(--slate);
+    background: none;
+    color: var(--slate);
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  .printbtn:hover { background: var(--slate); color: var(--surface); }
+
+  .printnote { font-size: 0.82rem; color: var(--muted); }
+
+  @media print {
+    @page { margin: 18mm; }
+    body { background: #fff; font-size: 11pt; }
+    .masthead, .abstract, .doing, .evidence, .limits, .refs,
+    .rule, .printbar, footer .colophon { display: none; }
+    .card { display: block !important; }
+  }
+
+  .card { display: none; }
+
+  .card h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 400;
+    font-size: 20pt;
+    margin-bottom: 0.3rem;
+  }
+
+  .card .card-sub {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 1.2rem;
+    font-size: 10pt;
+  }
+
+  .card ol { padding-left: 1.2rem; }
+
+  .card li {
+    margin-bottom: 0.45rem;
+    font-size: 10.5pt;
+    line-height: 1.45;
+  }
+
+  .card .card-close {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    margin-top: 1.4rem;
+    font-size: 11pt;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="eyebrow">Azurenexus · Relationship Science</div>
+    <h1>The <em>Foundation</em></h1>
+    <p class="subtitle">Ten practices for solidifying a relationship</p>
+
+    <div class="abstract">
+      <strong>Note on this document</strong>
+      Each practice below states what to do, then the finding it rests on, then the source.
+      The evidence is real but uneven: some points rest on decades of replicated work,
+      others on a single line of research or on clinical theory. Where a claim is weaker,
+      it is marked as such rather than dressed up. Read the
+      <a href="#limits">limitations</a> before treating any of this as settled.
+    </div>
+
+    <div class="printbar">
+      <button class="printbtn" onclick="window.print()">Print the card</button>
+      <span class="printnote">Prints the ten practices on one page — the apparatus stays here.</span>
+    </div>
+  </header>
+
+  <div class="rule">
+    <h2>The practices</h2>
+    <span class="count">Ten</span>
+  </div>
+
+  <main>
+
+    <section class="practice">
+      <div class="n">01</div>
+      <div>
+        <h3>Stay warm in conflict</h3>
+        <p class="statement">No coldness, no silence as punishment. We ask directly and kindly.</p>
+        <div class="doing">
+          <h4>In practice</h4>
+          <ul>
+            <li>Say the complaint, not the character: "the kitchen got left" — not "you're lazy"</li>
+            <li>If you go quiet, name it: "I need twenty minutes, then I'm back"</li>
+            <li>Never let silence do the arguing for you</li>
+          </ul>
+        </div>
+        <div class="evidence">
+          <h4>Evidence</h4>
+          Of the four behaviours Gottman identifies as corrosive — criticism, contempt, defensiveness,
+          stonewalling — contempt is the single strongest predictor of dissolution, and stonewalling
+          (emotional withdrawal) compounds it. Physiological flooding during conflict predicts
+          later separation.
+          <span class="cite">Gottman &amp; Levenson (1992, 2000)<sup><a href="#r1">1</a></sup></span>
+          <div class="strength s-mixed">Strong effect · prediction rates disputed</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="practice">
+      <div class="n">02</div>
+      <div>
+        <h3>Repair the same day</h3>
+        <p class="statement">No unresolved hurt goes to sleep with us.</p>
+        <div class="doing">
+          <h4>In practice</h4>
+          <ul>
+            <li>Repair does not require agreement — only contact: "I hate this. I'm still here."</li>
+            <li>A clumsy repair accepted beats an elegant one delivered late</li>
+            <li>The one who notices first goes first. Not the one who was wronged</li>
+          </ul>
+        </div>
+        <div class="evidence">
+          <h4>Evidence</h4>
+          Conflict frequency does not separate stable couples from unstable ones. What separates
+          them is whether repair attempts are made — and, critically, whether they are
+          <em>received</em>. Masters of relationships fight; they just recover.
+          <span class="cite">Gottman &amp; Silver (1999); Gottman &amp; Levenson (1992)<sup><a href="#r1">1</a>,<a href="#r2">2</a></sup></span>
+          <div class="strength s-strong">Well replicated</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="practice">
+      <div class="n">03</div>
+      <div>
+        <h3>Raise things at 20%, not 90%</h3>
+        <p class="statement">Small and early, spoken or written. No suffering alone overnight.</p>
+        <div class="doing">
+          <h4>In practice</h4>
+          <ul>
+            <li>The rule of thumb: if you noticed it twice, say it once</li>
+            <li>Written counts — a message at 20% is worth more than a conversation at 90%</li>
+            <li>Early raising feels petty. Do it anyway; that's the whole point</li>
+          </ul>
+        </div>
+        <div class="evidence">
+          <h4>Evidence</h4>
+          Direct, engaged communication feels worse in the moment but predicts better problem
+          resolution over time, while avoidance predicts the reverse. Overall and McNulty's
+          key qualification: the "best" communication depends on the severity of the problem —
+          soft approaches work for small issues, and can fail on serious ones.
+          <span class="cite">Overall &amp; McNulty (2017)<sup><a href="#r3">3</a></sup></span>
+          <div class="strength s-strong">Well supported · context-dependent</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="practice">
+      <div class="n">04</div>
+      <div>
+        <h3>The past is closed</h3>
+        <p class="statement">Fully accepted, history included. It never enters a disagreement.</p>
+        <div class="doing">
+          <h4>In practice</h4>
+          <ul>
+            <li>No history as ammunition — a past fact raised in a present fight is a weapon, not a topic</li>
+            <li>If the urge to ask for details arrives, notice it and let it pass unfed</li>
+            <li>Each re-telling strengthens the groove. Accept, don't excavate</li>
+          </ul>
+        </div>
+        <div class="evidence">
+          <h4>Evidence</h4>
+          This is the weakest-evidenced practice here, and it should be labelled honestly.
+          There is no substantial peer-reviewed literature on "retroactive jealousy" as such —
+          the term is largely clinical and popular. What <em>is</em> well established is adjacent:
+          rumination maintains and amplifies distress rather than resolving it, and
+          acceptance-based approaches reduce it more reliably than analysis does.
+          <span class="cite">Nolen-Hoeksema et al. (2008); Hayes et al. (2006)<sup><a href="#r4">4</a>,<a href="#r5">5</a></sup></span>
+          <div class="strength s-mixed">Extrapolated from adjacent research</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="practice">
+      <div class="n">05</div>
+      <div>
+        <h3>Our pace is set together</h3>
+        <p class="statement">Neither pressure nor retreat.</p>
+        <div class="doing">
+          <h4>In practice</h4>
+          <ul>
+            <li>Learn which one you are under stress — the pursuer or the withdrawer</li>
+            <li>Name the cycle, not the person: "we're doing the thing again"</li>
+            <li>The pursuer softens the demand; the withdrawer stays in the room. Both, or neither works</li>
+          </ul>
+        </div>
+        <div class="evidence">
+          <h4>Evidence</h4>
+          Emotionally Focused Therapy treats the pursue–withdraw cycle as the engine of distress
+          rather than a symptom of it. Across randomised trials, roughly 70–73% of couples moved
+          from distress to recovery; a 2022 meta-analysis across 20 studies found a large
+          pre–post effect (<em>d</em> = 0.93) that held at follow-up.
+          <span class="cite">Johnson et al. (1999); Spengler et al. (2022)<sup><a href="#r6">6</a>,<a href="#r7">7</a></sup></span>
+          <div class="strength s-strong">Strong · see sampling limits</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="practice">
+      <div class="n">06</div>
+      <div>
+        <h3>One protected evening a week</h3>
+        <p class="statement">Phones away, fully present.</p>
+        <div class="doing">
+          <h4>In practice</h4>
+          <ul>
+            <li>Protected means it survives a busy week — otherwise it isn't protected</li>
+            <li>Phones in another room, not face-down on the table. Presence is measurable</li>
+            <li>Responsiveness is the point: understood, validated, cared for. Not merely co-located</li>
+          </ul>
+        </div>
+        <div class="evidence">
+          <h4>Evidence</h4>
+          Reis and Shaver's interpersonal process model holds that intimacy is built through
+          disclosure met with a response the discloser reads as understanding, validating and
+          caring — perceived partner responsiveness. McDaniel and Coyne's work on
+          "technoference" found everyday device interruptions predicted lower relationship
+          satisfaction, mediated by conflict over technology use.
+          <span class="cite">Reis &amp; Shaver (1988); McDaniel &amp; Coyne (2016)<sup><a href="#r8">8</a>,<a href="#r9">9</a></sup></span>
+          <div class="strength s-mixed">Model well supported · technoference correlational</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="practice">
+      <div class="n">07</div>
+      <div>
+        <h3>Safety first in intimacy</h3>
+        <p class="statement">Unhurried, private, listening to each other's bodies.</p>
+        <div class="doing">
+          <h4>In practice</h4>
+          <ul>
+            <li>Stop waiting for spontaneous desire to arrive and then reading its absence as a verdict</li>
+            <li>Context is not a mood-killer; context is the mechanism</li>
+            <li>Low pressure is not the preliminary to desire — it's the precondition</li>
+          </ul>
+        </div>
+        <div class="evidence">
+          <h4>Evidence</h4>
+          Basson's circular model reframed desire as frequently <em>responsive</em> — emerging
+          after arousal begins, in conditions of safety — rather than spontaneous and
+          preceding it. Nagoski's dual control model adds that reducing the "brakes"
+          (stress, pressure, self-consciousness) usually matters more than pressing the accelerator.
+          <span class="cite">Basson (2000); Nagoski (2015)<sup><a href="#r10">10</a>,<a href="#r11">11</a></sup></span>
+          <div class="strength s-mixed">Influential model · clinically derived</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="practice">
+      <div class="n">08</div>
+      <div>
+        <h3>Celebrate each other's wins</h3>
+        <p class="statement">We show up loudly for good news, not just faithfully for bad.</p>
+        <div class="doing">
+          <h4>In practice</h4>
+          <ul>
+            <li>Four ways to answer good news; only one builds anything — active and constructive</li>
+            <li>"That's great" while scrolling is passive-constructive. It reads as indifference</li>
+            <li>Ask for the details. Make them tell it twice</li>
+          </ul>
+        </div>
+        <div class="evidence">
+          <h4>Evidence</h4>
+          Gable's work on capitalization found that how a partner responds to good news predicts
+          relationship well-being, commitment and longevity — in several analyses more strongly
+          than support offered during adversity. Enthusiastic, engaged responses signal investment;
+          passive ones quietly corrode.
+          <span class="cite">Gable, Reis, Impett &amp; Asher (2004); Gable et al. (2006)<sup><a href="#r12">12</a>,<a href="#r13">13</a></sup></span>
+          <div class="strength s-strong">Well replicated</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="practice">
+      <div class="n">09</div>
+      <div>
+        <h3>Say thank you, specifically, weekly</h3>
+        <p class="statement">Gratitude unspoken doesn't count.</p>
+        <div class="doing">
+          <h4>In practice</h4>
+          <ul>
+            <li>Name the act, not the trait: "you took the early train so I could sleep"</li>
+            <li>Felt gratitude has no measurable effect on your partner. Expressed gratitude does</li>
+            <li>Weekly is the floor, not the ceiling</li>
+          </ul>
+        </div>
+        <div class="evidence">
+          <h4>Evidence</h4>
+          Algoe's find–remind–bind theory holds that expressed gratitude functions as a
+          relationship booster: in daily-diary work, a partner's expression of gratitude
+          predicted both partners' relationship connection and satisfaction the following day.
+          The expression is the active ingredient.
+          <span class="cite">Algoe, Gable &amp; Maisel (2010); Algoe (2012)<sup><a href="#r14">14</a>,<a href="#r15">15</a></sup></span>
+          <div class="strength s-strong">Well supported</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="practice">
+      <div class="n">10</div>
+      <div>
+        <h3>Check in on us quarterly</h3>
+        <p class="statement">Review, adjust, keep building.</p>
+        <div class="doing">
+          <h4>In practice</h4>
+          <ul>
+            <li>Put it in the calendar. A relationship review that depends on remembering won't happen</li>
+            <li>Three questions: what's working, what's thinning, what do we change before next quarter</li>
+            <li>Treat it as maintenance, not as an alarm. You review when things are fine</li>
+          </ul>
+        </div>
+        <div class="evidence">
+          <h4>Evidence</h4>
+          Finkel's "all-or-nothing" account argues modern marriages ask more of a partner than
+          ever and deliver more when adequately invested in — but that investment has to be
+          deliberate. The Harvard Study of Adult Development, running since 1938 across 724
+          original participants, found relationship satisfaction at 50 predicted physical health
+          at 80 better than cholesterol did.
+          <span class="cite">Finkel (2017); Waldinger &amp; Schulz (2023)<sup><a href="#r16">16</a>,<a href="#r17">17</a></sup></span>
+          <div class="strength s-mixed">Landmark · observational, not causal</div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div class="rule" id="limits">
+    <h2>Limitations</h2>
+    <span class="count">Read this</span>
+  </div>
+
+  <div class="limits">
+    <p>
+      <strong>Most of this is correlational.</strong> The Harvard Study is observational —
+      it establishes that warm relationships travel with better health across decades, not
+      that one causes the other. Couples who repair well may simply be couples who were
+      doing better already. Only the therapy trials (practice 5) are randomised.
+    </p>
+    <p>
+      <strong>Gottman's prediction rates are disputed.</strong> The widely cited "90%+ accuracy"
+      figures came from models fitted to the same samples they predicted — retrodiction, not
+      prediction. Heyman and Slep's re-analysis showed accuracy drops substantially on
+      independent data. The <em>behaviours</em> Gottman identifies remain well supported; the
+      headline accuracy claim does not.
+    </p>
+    <p>
+      <strong>The samples skew narrow.</strong> EFT's efficacy research has been conducted
+      largely with White, middle-class, heterosexual couples, and cannot be assumed to
+      transfer without adaptation. This is true of much of the field: predominantly Western,
+      educated, industrialised, rich and democratic samples.
+    </p>
+    <p>
+      <strong>Effect sizes are not destiny.</strong> A large average effect says nothing
+      certain about any individual couple. These are practices with reasonable evidentiary
+      support — not laws, and not a guarantee.
+    </p>
+  </div>
+
+  <div class="rule">
+    <h2>References</h2>
+    <span class="count">Seventeen</span>
+  </div>
+
+  <div class="refs">
+    <ol>
+      <li id="r1">Gottman, J. M., &amp; Levenson, R. W. (1992). Marital processes predictive of later dissolution: Behavior, physiology, and health. <em>Journal of Personality and Social Psychology, 63</em>(2), 221–233. See also Gottman &amp; Levenson (2000), <em>Journal of Marriage and Family, 62</em>(3), 737–745.</li>
+      <li id="r2">Gottman, J. M., &amp; Silver, N. (1999). <em>The Seven Principles for Making Marriage Work.</em> Crown.</li>
+      <li id="r3">Overall, N. C., &amp; McNulty, J. K. (2017). What type of communication during conflict is beneficial for intimate relationships? <em>Current Opinion in Psychology, 13</em>, 1–5.</li>
+      <li id="r4">Nolen-Hoeksema, S., Wisco, B. E., &amp; Lyubomirsky, S. (2008). Rethinking rumination. <em>Perspectives on Psychological Science, 3</em>(5), 400–424.</li>
+      <li id="r5">Hayes, S. C., Luoma, J. B., Bond, F. W., Masuda, A., &amp; Lillis, J. (2006). Acceptance and Commitment Therapy: Model, processes and outcomes. <em>Behaviour Research and Therapy, 44</em>(1), 1–25.</li>
+      <li id="r6">Johnson, S. M., Hunsley, J., Greenberg, L., &amp; Schindler, D. (1999). Emotionally focused couples therapy: Status and challenges. <em>Clinical Psychology: Science and Practice, 6</em>(1), 67–79.</li>
+      <li id="r7">Spengler, E. S., et al. (2022). A comprehensive meta-analysis on the efficacy of emotionally focused couple therapy. <em>Couple and Family Psychology: Research and Practice.</em></li>
+      <li id="r8">Reis, H. T., &amp; Shaver, P. (1988). Intimacy as an interpersonal process. In S. Duck (Ed.), <em>Handbook of Personal Relationships</em> (pp. 367–389). Wiley.</li>
+      <li id="r9">McDaniel, B. T., &amp; Coyne, S. M. (2016). "Technoference": The interference of technology in couple relationships. <em>Psychology of Popular Media Culture, 5</em>(1), 85–98.</li>
+      <li id="r10">Basson, R. (2000). The female sexual response: A different model. <em>Journal of Sex &amp; Marital Therapy, 26</em>(1), 51–65.</li>
+      <li id="r11">Nagoski, E. (2015). <em>Come As You Are: The Surprising New Science That Will Transform Your Sex Life.</em> Simon &amp; Schuster.</li>
+      <li id="r12">Gable, S. L., Reis, H. T., Impett, E. A., &amp; Asher, E. R. (2004). What do you do when things go right? <em>Journal of Personality and Social Psychology, 87</em>(2), 228–245.</li>
+      <li id="r13">Gable, S. L., Gonzaga, G. C., &amp; Strachman, A. (2006). Will you be there for me when things go right? <em>Journal of Personality and Social Psychology, 91</em>(5), 904–917.</li>
+      <li id="r14">Algoe, S. B., Gable, S. L., &amp; Maisel, N. C. (2010). It's the little things: Everyday gratitude as a booster shot for romantic relationships. <em>Personal Relationships, 17</em>(2), 217–233.</li>
+      <li id="r15">Algoe, S. B. (2012). Find, remind, and bind: The functions of gratitude in everyday relationships. <em>Social and Personality Psychology Compass, 6</em>(6), 455–469.</li>
+      <li id="r16">Finkel, E. J. (2017). <em>The All-or-Nothing Marriage.</em> Dutton.</li>
+      <li id="r17">Waldinger, R., &amp; Schulz, M. (2023). <em>The Good Life: Lessons from the World's Longest Scientific Study of Happiness.</em> Simon &amp; Schuster.</li>
+    </ol>
+  </div>
+
+  <footer>
+    <p class="closing">Not built on sand — but built by hand, and practiced daily.</p>
+    <div class="colophon">
+      <span>Azurenexus · Switzerland</span>
+      <span><a href="https://domains.azurenexus.com">All work →</a></span>
+    </div>
+  </footer>
+
+  <!-- print-only card -->
+  <div class="card">
+    <h2>The Foundation</h2>
+    <p class="card-sub">Ten practices for solidifying a relationship</p>
+    <ol>
+      <li><strong>Stay warm in conflict.</strong> No coldness, no silence as punishment — we ask directly and kindly.</li>
+      <li><strong>Repair the same day.</strong> No unresolved hurt goes to sleep with us.</li>
+      <li><strong>Raise things at 20%, not 90%.</strong> Small and early, spoken or written — no suffering alone overnight.</li>
+      <li><strong>The past is closed.</strong> Fully accepted, history included — it never enters a disagreement.</li>
+      <li><strong>Our pace is set together.</strong> Neither pressure nor retreat.</li>
+      <li><strong>One protected evening a week.</strong> Phones away, fully present.</li>
+      <li><strong>Safety first in intimacy.</strong> Unhurried, private, listening to each other's bodies.</li>
+      <li><strong>Celebrate each other's wins.</strong> We show up loudly for good news, not just faithfully for bad.</li>
+      <li><strong>Say thank you, specifically, weekly.</strong> Gratitude unspoken doesn't count.</li>
+      <li><strong>Check in on us quarterly.</strong> Review, adjust, keep building.</li>
+    </ol>
+    <p class="card-close">Not built on sand — but built by hand, and practiced daily.</p>
+  </div>
+
+</div>
+
+</body>
+</html>
