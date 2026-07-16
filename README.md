@@ -1,4 +1,4 @@
-# The Foundation — foundation.azurenexus.com
+# Solidifying a Relationship — foundation.azurenexus.com
 
 Ten practices for solidifying a relationship, each stated as a practice,
 then grounded in the research it rests on, with full references.
